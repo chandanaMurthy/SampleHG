@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		15AD98756D62788B9FD615BC /* Pods_SampleHGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D6BD183538DF2A4D5D577A /* Pods_SampleHGUITests.framework */; };
+		1709D0B6216DC05F00D896ED /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B5216DC05F00D896ED /* DatePickerCell.swift */; };
+		1709D0B8216F488000D896ED /* HideKeyboardOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B7216F488000D896ED /* HideKeyboardOnTap.swift */; };
+		1709D0BA21706DB000D896ED /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B921706DB000D896ED /* UITextField.swift */; };
+		17B5634F2174B1360032A9E7 /* UIToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5634E2174B1360032A9E7 /* UIToolBar.swift */; };
+		17E640912175B15B00304876 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E640902175B15B00304876 /* YearCell.swift */; };
 		17E6740C216765F50056BDD7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6740B216765F50056BDD7 /* HomeViewModel.swift */; };
 		17E67410216766340056BDD7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6740F216766340056BDD7 /* UIViewController.swift */; };
 		17E67412216766410056BDD7 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E67411216766410056BDD7 /* UIStoryboard.swift */; };
 		17E67414216766750056BDD7 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E67413216766750056BDD7 /* ServiceManager.swift */; };
 		17E67416216766970056BDD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E67415216766970056BDD7 /* Constants.swift */; };
+		17E6741F216780E80056BDD7 /* ExpandableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6741E216780E80056BDD7 /* ExpandableSection.swift */; };
+		17E6742921686F980056BDD7 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6742721686F980056BDD7 /* HomeNavigationController.swift */; };
+		17E6742D21686FCF0056BDD7 /* HomeNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E6742C21686FCF0056BDD7 /* HomeNavigationController.storyboard */; };
+		17E67430216920FE0056BDD7 /* SingleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6742F216920FE0056BDD7 /* SingleTextFieldCell.swift */; };
+		17E8A58E216B76680016ED34 /* DoubleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E8A58D216B76680016ED34 /* DoubleTextFieldCell.swift */; };
 		17ECAD0B21673B7900E297C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD0A21673B7900E297C7 /* AppDelegate.swift */; };
 		17ECAD0D21673B7900E297C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD0C21673B7900E297C7 /* HomeViewController.swift */; };
 		17ECAD1021673B7900E297C7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17ECAD0E21673B7900E297C7 /* HomeViewController.storyboard */; };
@@ -42,11 +52,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1709D0B5216DC05F00D896ED /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		1709D0B7216F488000D896ED /* HideKeyboardOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnTap.swift; sourceTree = "<group>"; };
+		1709D0B921706DB000D896ED /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		17B5634E2174B1360032A9E7 /* UIToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolBar.swift; sourceTree = "<group>"; };
+		17E640902175B15B00304876 /* YearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCell.swift; sourceTree = "<group>"; };
 		17E6740B216765F50056BDD7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		17E6740F216766340056BDD7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		17E67411216766410056BDD7 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		17E67413216766750056BDD7 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		17E67415216766970056BDD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17E6741E216780E80056BDD7 /* ExpandableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSection.swift; sourceTree = "<group>"; };
+		17E6742721686F980056BDD7 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		17E6742C21686FCF0056BDD7 /* HomeNavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeNavigationController.storyboard; sourceTree = "<group>"; };
+		17E6742F216920FE0056BDD7 /* SingleTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTextFieldCell.swift; sourceTree = "<group>"; };
+		17E8A58D216B76680016ED34 /* DoubleTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextFieldCell.swift; sourceTree = "<group>"; };
 		17ECAD0721673B7900E297C7 /* SampleHG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleHG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ECAD0A21673B7900E297C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17ECAD0C21673B7900E297C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -114,9 +134,9 @@
 		17E6740A216765E60056BDD7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				17ECAD0E21673B7900E297C7 /* HomeViewController.storyboard */,
-				17ECAD0C21673B7900E297C7 /* HomeViewController.swift */,
 				17E6740B216765F50056BDD7 /* HomeViewModel.swift */,
+				17E6742E216900220056BDD7 /* HomeView */,
+				17E6742B21686FAF0056BDD7 /* HomeNavigation */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -134,8 +154,55 @@
 			children = (
 				17E6740F216766340056BDD7 /* UIViewController.swift */,
 				17E67411216766410056BDD7 /* UIStoryboard.swift */,
+				1709D0B7216F488000D896ED /* HideKeyboardOnTap.swift */,
+				1709D0B921706DB000D896ED /* UITextField.swift */,
+				17B5634E2174B1360032A9E7 /* UIToolBar.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		17E6741D216780D60056BDD7 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				17E6741E216780E80056BDD7 /* ExpandableSection.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		17E67422216792450056BDD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		17E6742B21686FAF0056BDD7 /* HomeNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				17E6742721686F980056BDD7 /* HomeNavigationController.swift */,
+				17E6742C21686FCF0056BDD7 /* HomeNavigationController.storyboard */,
+			);
+			path = HomeNavigation;
+			sourceTree = "<group>";
+		};
+		17E6742E216900220056BDD7 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				17ECAD0C21673B7900E297C7 /* HomeViewController.swift */,
+				17ECAD0E21673B7900E297C7 /* HomeViewController.storyboard */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		17E8A58C216B76370016ED34 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				17E6742F216920FE0056BDD7 /* SingleTextFieldCell.swift */,
+				17E8A58D216B76680016ED34 /* DoubleTextFieldCell.swift */,
+				1709D0B5216DC05F00D896ED /* DatePickerCell.swift */,
+				17E640902175B15B00304876 /* YearCell.swift */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 		17ECACFE21673B7900E297C7 = {
@@ -163,9 +230,12 @@
 		17ECAD0921673B7900E297C7 /* SampleHG */ = {
 			isa = PBXGroup;
 			children = (
+				17E67422216792450056BDD7 /* Models */,
+				17E6741D216780D60056BDD7 /* Structures */,
 				17E6740E216766200056BDD7 /* Extensions */,
 				17E6740D216766190056BDD7 /* Services */,
 				17E67409216765910056BDD7 /* Application */,
+				17E8A58C216B76370016ED34 /* CustomTableViewCell */,
 				17ECAD3821673B8700E297C7 /* ViewControllers */,
 			);
 			path = SampleHG;
@@ -332,6 +402,7 @@
 				17ECAD1521673B7B00E297C7 /* LaunchScreen.storyboard in Resources */,
 				17ECAD1221673B7B00E297C7 /* Assets.xcassets in Resources */,
 				17ECAD1021673B7900E297C7 /* HomeViewController.storyboard in Resources */,
+				17E6742D21686FCF0056BDD7 /* HomeNavigationController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,13 +537,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1709D0B8216F488000D896ED /* HideKeyboardOnTap.swift in Sources */,
+				17E6742921686F980056BDD7 /* HomeNavigationController.swift in Sources */,
+				17E6741F216780E80056BDD7 /* ExpandableSection.swift in Sources */,
 				17ECAD0D21673B7900E297C7 /* HomeViewController.swift in Sources */,
 				17E67412216766410056BDD7 /* UIStoryboard.swift in Sources */,
+				17E8A58E216B76680016ED34 /* DoubleTextFieldCell.swift in Sources */,
+				17E67430216920FE0056BDD7 /* SingleTextFieldCell.swift in Sources */,
 				17E6740C216765F50056BDD7 /* HomeViewModel.swift in Sources */,
 				17E67410216766340056BDD7 /* UIViewController.swift in Sources */,
+				1709D0BA21706DB000D896ED /* UITextField.swift in Sources */,
+				17E640912175B15B00304876 /* YearCell.swift in Sources */,
 				17E67416216766970056BDD7 /* Constants.swift in Sources */,
 				17ECAD0B21673B7900E297C7 /* AppDelegate.swift in Sources */,
+				17B5634F2174B1360032A9E7 /* UIToolBar.swift in Sources */,
 				17E67414216766750056BDD7 /* ServiceManager.swift in Sources */,
+				1709D0B6216DC05F00D896ED /* DatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +731,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJ4K44BL6G;
 				INFOPLIST_FILE = "$(SRCROOT)/SampleHG/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,6 +751,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJ4K44BL6G;
 				INFOPLIST_FILE = "$(SRCROOT)/SampleHG/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

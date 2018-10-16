@@ -16,4 +16,8 @@ extension UIViewController {
         }
         return viewController
     }
+    
+    static var home: UIViewController {
+        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.home, identifier: "HomeViewController", to: HomeViewController.self)
+    }
 }

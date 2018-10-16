@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 extension UIStoryboard {
-    
+    static var home: UIStoryboard {
+        return UIStoryboard(name: "HomeViewController", bundle: nil)
+    }
 }
