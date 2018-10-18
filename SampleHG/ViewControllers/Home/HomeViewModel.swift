@@ -18,7 +18,7 @@ class HomeViewModel {
                                "Other Liens", "Description of Other Liens",
                                "HomeOwner's Association", "Total Encumbrances"]
     private let geoDesc = ["MLS Area", "Legal Description", "Map Grid",
-                           "Subdivision", "Lot", "Block"]
+                           "Subdivision", "Lot Name", "Block"]
     private let contractDates = ["Contract Agreement Date", "Closing Date"]
     private let offerDates = ["Inspection Date", "Offer Date", "Offer Expiration Date"]
     private let property = ["Year Built", "Bedrooms", "Square Footage"]
@@ -28,6 +28,16 @@ class HomeViewModel {
                                 "Contract Dates", "Offer Dates", "Property"]
     private var placeholderStrings = [[String]]()
     let dateTextFieldPlaceholder = "Click to Select"
+    private let decimalPadArray = ["original price", "current price", "1st mortgage balance", "2nd mortgage balance", "square footage", "mls area", "total encumbrances"]
+    private let numberPadArray = ["zipcode", "block", "mls number", "bedrooms", "apt/unit", "parcel/tax id"]
+    
+    func getDecimalPadArray() -> [String] {
+        return decimalPadArray
+    }
+    
+    func getNumberPadArray() -> [String] {
+        return numberPadArray
+    }
     
     func getHeaderTitles() -> [String] {
         return headerTitles

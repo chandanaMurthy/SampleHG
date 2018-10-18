@@ -15,10 +15,12 @@ class HomeViewController: UIViewController {
     private var textFieldtexts = [String]()
     private var tableViewRowNumbers = [[Int]]()
     private var textFieldNumbers = [[Int]]()
+    var datePickerView: UIDatePicker?
+    let dateFormatter = DateFormatter()
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "SampleHG"
+        self.navigationItem.title = "Demo"
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: Constants.FONT, size: 19)]
         self.navigationController?.navigationBar.titleTextAttributes = titleTextAttributes as [NSAttributedString.Key: Any]
     }
@@ -115,7 +117,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cells[section].isExpanded = !isExpanded
         button.setTitle(isExpanded ? "v" : "^", for: .normal)
         if isExpanded {
-            tableView.deleteRows(at: indexPaths, with: .automatic)
+            tableView.deleteRows(at: indexPaths, with: .none)
         } else {
             tableView.insertRows(at: indexPaths, with: .automatic)
         }
@@ -127,6 +129,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
     }
     
     private func getIndexArray() {
@@ -155,7 +161,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     private func configureSingleTextFieldCell(indexPath: IndexPath, cellIndex: Int) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SINGLE_TEXTFIELD, for: indexPath) as? SingleTextFieldCell else {
             fatalError(Constants.FATAL_ERROR)
-        }
+        }        
         cell.cellTextField.tag = cellIndex
         cell.cellTextField.placeholder = homeViewModel.getPlaceholderString(in: indexPath.section, at: indexPath.row)
         cell.cellTextField.delegate = self
@@ -236,15 +242,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func createPickerView(sender: UITextField) {
-        let datePickerView = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePicker.Mode.date
+        datePickerView = UIDatePicker()
+        datePickerView?.datePickerMode = UIDatePicker.Mode.date
         sender.inputView = datePickerView
-        datePickerView.tag = sender.tag
-        datePickerView.addTarget(self, action: #selector(datePickerValueChanged(caller:)), for: UIControl.Event.valueChanged)
+        datePickerView?.tag = sender.tag
+        datePickerView?.addTarget(self, action: #selector(datePickerValueChanged(caller:)), for: UIControl.Event.valueChanged)
     }
     
     @objc func datePickerValueChanged(caller: UIDatePicker) {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         let indexRow = caller.tag
@@ -307,12 +312,45 @@ extension HomeViewController: UITextFieldDelegate {
         if row >= textFieldtexts.count {
             for _ in ((textFieldtexts.count)..<row+1) {
                 textFieldtexts.append(Constants.EMPTY_STRING)
-                // add blank rows in case the user skips rows
+                // add blank rows in case user skips rows
             }
         }
         guard let enteredText = textField.text else {
             return
         }
         textFieldtexts[row] = enteredText
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let placeholder = textField.placeholder else {
+            return
+        }
+        if homeViewModel.getDecimalPadArray().contains(placeholder.lowercased()) {
+            textField.keyboardType = .decimalPad
+        } else if homeViewModel.getNumberPadArray().contains(placeholder.lowercased()) {
+            textField.keyboardType = .numberPad
+        } else {
+            textField.keyboardType = .default
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text, let r = Range(range, in: text) else {
+            return true
+        }
+        if textField.keyboardType == .decimalPad {
+            let newText = text.replacingCharacters(in: r, with: string)
+            let isNumeric = newText.isEmpty || (Double(newText) != nil)
+            let numberOfDots = newText.components(separatedBy: ".").count - 1
+            
+            let numberOfDecimalDigits: Int
+            if let dotIndex = newText.index(of: ".") {
+                numberOfDecimalDigits = newText.distance(from: dotIndex, to: newText.endIndex) - 1
+            } else {
+                numberOfDecimalDigits = 0
+            }
+            return isNumeric && numberOfDots <= 1 && numberOfDecimalDigits <= 2
+        }
+        return true
     }
 }
