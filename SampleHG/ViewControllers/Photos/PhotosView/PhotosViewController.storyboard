@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos View Controller-->
+        <scene sceneID="oMh-PK-hOL">
+            <objects>
+                <viewController storyboardIdentifier="PhotosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X8N-5Z-edJ" customClass="PhotosViewController" customModule="SampleHG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9w5-uC-R7C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-3o-9bb">
+                                <rect key="frame" x="0.0" y="20" width="320" height="202"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-ir-h6W">
+                                <rect key="frame" x="0.0" y="230" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EAc-lt-3cR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapUploadButton:" destination="X8N-5Z-edJ" eventType="touchUpInside" id="Z5U-Ib-2Ue"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aHE-3o-9bb" firstAttribute="leading" secondItem="O6T-xj-kza" secondAttribute="leading" id="0LS-hc-DmS"/>
+                            <constraint firstItem="72J-ir-h6W" firstAttribute="top" secondItem="aHE-3o-9bb" secondAttribute="bottom" constant="8" id="37R-a0-hb3"/>
+                            <constraint firstItem="O6T-xj-kza" firstAttribute="bottom" secondItem="72J-ir-h6W" secondAttribute="bottom" constant="200" id="Pc2-Wa-MWH">
+                                <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="aHE-3o-9bb" firstAttribute="top" secondItem="O6T-xj-kza" secondAttribute="top" id="SfC-Eh-Pke"/>
+                            <constraint firstItem="O6T-xj-kza" firstAttribute="trailing" secondItem="72J-ir-h6W" secondAttribute="trailing" id="YTL-75-w1c"/>
+                            <constraint firstItem="72J-ir-h6W" firstAttribute="leading" secondItem="O6T-xj-kza" secondAttribute="leading" id="ZPk-b7-Azd"/>
+                            <constraint firstItem="O6T-xj-kza" firstAttribute="trailing" secondItem="aHE-3o-9bb" secondAttribute="trailing" id="rwm-Eb-9XB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O6T-xj-kza"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="aHE-3o-9bb" id="QZx-fd-P2D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahJ-Xf-Jeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186" y="89"/>
+        </scene>
+    </scenes>
+</document>

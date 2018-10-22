@@ -13,14 +13,13 @@ class HomeViewController: UIViewController {
     private let homeViewModel = HomeViewModel()
     private var cells = [ExpandableSection]()
     private var textFieldtexts = [String]()
-    private var tableViewRowNumbers = [[Int]]()
     private var textFieldNumbers = [[Int]]()
     var datePickerView: UIDatePicker?
     let dateFormatter = DateFormatter()
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Demo"
+        self.navigationItem.title = Constants.DETAILS
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: Constants.FONT, size: 19)]
         self.navigationController?.navigationBar.titleTextAttributes = titleTextAttributes as [NSAttributedString.Key: Any]
     }
@@ -40,12 +39,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = .white
         setupNavigationBar()
+        setTableViewCellTitles()
         tableView.delegate = self
         tableView.dataSource = self
-        setTableViewCellTitles()
         hideKeyboardWhenTappedAround()
-        tableView.backgroundColor = .white
+        getIndexArray()
     }
     
     private func setTableViewCellTitles() {
@@ -56,7 +56,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(with:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(with:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        getIndexArray()
     }
 }
 
@@ -65,13 +64,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if !cells[section].isExpanded {
             return 0
         } else if section == 1 || section == 3 { //DoubleTextFieldCell sections
-            return cells[section].cellTitles.count/2
+            return homeViewModel.cellTitleCount(in: section)/2
         }
-        return cells[section].cellTitles.count
+        return homeViewModel.cellTitleCount(in: section)
     }
   
     func numberOfSections(in tableView: UITableView) -> Int {
-        return cells.count
+        return homeViewModel.totalCellCount()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -80,14 +79,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let label = UILabel()
         label.textColor = .white
-        label.text = homeViewModel.getHeaderTitles()[section]
+        label.text = homeViewModel.getHeaderTitle(at: section)
         label.font = UIFont(name: Constants.FONT, size: 17)
         label.frame = CGRect(x: 16, y: 0, width: tableView.frame.width, height: 44)
         view.addSubview(label)
         
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: tableView.frame.width - 24, height: 44)
-        button.setTitle(cells[section].isExpanded ? "^" : "v", for: .normal)
+        button.setTitle(cells[section].isExpanded ? homeViewModel.CLOSE : homeViewModel.OPEN, for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.contentHorizontalAlignment = .right
         button.titleLabel?.font = UIFont(name: Constants.FONT, size: 17)
@@ -101,7 +100,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func didTapSectionHeaderButton(button: UIButton) {
         let section = button.tag
         var indexPaths = [IndexPath]()
-        for row in cells[section].cellTitles.indices {
+        for row in 0..<homeViewModel.cellTitleCount(in: section) {
             if section == 1 || section == 3 { //DoubleTextFieldCell sections
                 if row % 2 == 0 {
                     let indexPath = IndexPath(row: row/2, section: button.tag)
@@ -115,7 +114,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let isExpanded = cells[section].isExpanded
         cells[section].isExpanded = !isExpanded
-        button.setTitle(isExpanded ? "v" : "^", for: .normal)
+        button.setTitle(isExpanded ? homeViewModel.OPEN : homeViewModel.CLOSE, for: .normal)
         if isExpanded {
             tableView.deleteRows(at: indexPaths, with: .none)
         } else {
@@ -124,7 +123,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 40
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,35 +136,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func getIndexArray() {
         let numberOfSections = tableView.numberOfSections
-        var rowCount = 0
         var textFieldCount = 0
         for sectionIndex in 0..<numberOfSections {
-            tableViewRowNumbers.append([Int]())
             textFieldNumbers.append([Int]())
-            
-            let numberOfRows = cells[sectionIndex].cellTitles.count
-            for rowIndex in 0..<tableView.numberOfRows(inSection: sectionIndex) {
-                tableViewRowNumbers[sectionIndex].append(rowIndex + rowCount)
-            }
-            
-            for textFieldIndex in 0..<numberOfRows {
+            let numberOfRows = homeViewModel.cellTitleCount(in: sectionIndex)
+                        for textFieldIndex in 0..<numberOfRows {
                 textFieldNumbers[sectionIndex].append(textFieldIndex + textFieldCount)
             }
-            rowCount += tableView.numberOfRows(inSection: sectionIndex)
-            textFieldCount += cells[sectionIndex].cellTitles.count
+            textFieldCount += homeViewModel.cellTitleCount(in: sectionIndex)
         }
-        print(tableViewRowNumbers)
-        print(textFieldNumbers)
     }
     
     private func configureSingleTextFieldCell(indexPath: IndexPath, cellIndex: Int) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.SINGLE_TEXTFIELD, for: indexPath) as? SingleTextFieldCell else {
             fatalError(Constants.FATAL_ERROR)
-        }        
+        }
+        let section = indexPath.section
+        let row = indexPath.row
         cell.cellTextField.tag = cellIndex
-        cell.cellTextField.placeholder = homeViewModel.getPlaceholderString(in: indexPath.section, at: indexPath.row)
+        cell.cellTextField.placeholder = homeViewModel.getPlaceholderString(in: section, at: row)
         cell.cellTextField.delegate = self
-        cell.configureCell(title: cells[indexPath.section].cellTitles[indexPath.row])
+        cell.configureCell(title: homeViewModel.getCellName(section: section, row: row))
         if cellIndex < textFieldtexts.count {
             cell.cellTextField.text = self.textFieldtexts[cellIndex]
         } else {
@@ -196,10 +187,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func setDoubleTextFieldCellProperties(cell: DoubleTextFieldCell, indexPath: IndexPath, leftIndex: Int) {
-        cell.setLabels(leftName: cells[indexPath.section].cellTitles[indexPath.row * 2], rightName: cells[indexPath.section].cellTitles[indexPath.row * 2 + 1])
+        let section = indexPath.section
+        let row = indexPath.row
         
-        cell.leftTextField.placeholder = homeViewModel.getPlaceholderString(in: indexPath.section, at: indexPath.row * 2)
-        cell.rightTextField.placeholder = homeViewModel.getPlaceholderString(in: indexPath.section, at: indexPath.row * 2 + 1)
+        cell.setLabels(leftName: homeViewModel.getCellName(section: section, row: row * 2), rightName: homeViewModel.getCellName(section: section, row: row * 2 + 1))
+        
+        cell.leftTextField.placeholder = homeViewModel.getPlaceholderString(in: section, at: row * 2)
+        cell.rightTextField.placeholder = homeViewModel.getPlaceholderString(in: section, at: row * 2 + 1)
         
         cell.leftTextField.tag = leftIndex
         cell.rightTextField.tag = cell.leftTextField.tag + 1
@@ -209,11 +203,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func configureYearCell(indexPath: IndexPath, cellIndex: Int) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "YearCell", for: indexPath) as? YearCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.YEAR_CELL, for: indexPath) as? YearCell else {
             fatalError(Constants.FATAL_ERROR)
         }
-        cell.setLabel(title: cells[indexPath.section].cellTitles[indexPath.row])
-        cell.yearTextField.placeholder = homeViewModel.dateTextFieldPlaceholder
+        cell.setLabel(title: homeViewModel.getCellName(section: indexPath.section, row: indexPath.row))
+        cell.yearTextField.placeholder = homeViewModel.PICKERFIELD_PLACEHOLDER
         cell.yearTextField.delegate = self
         cell.yearTextField.tag = cellIndex
         if cellIndex < textFieldtexts.count {
@@ -228,9 +222,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.DATE_CELL, for: indexPath) as? DatePickerCell else {
             fatalError(Constants.FATAL_ERROR)
         }
-        cell.configureCell(title: cells[indexPath.section].cellTitles[indexPath.row])
+        cell.configureCell(title: homeViewModel.getCellName(section: indexPath.section, row: indexPath.row))
         cell.dateTextField.delegate = self
-        cell.dateTextField.placeholder = homeViewModel.dateTextFieldPlaceholder
+        cell.dateTextField.placeholder = homeViewModel.PICKERFIELD_PLACEHOLDER
         cell.dateTextField.tag = cellIndex
         if cellIndex < textFieldtexts.count {
             cell.dateTextField.text = self.textFieldtexts[cellIndex]
@@ -244,6 +238,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     private func createPickerView(sender: UITextField) {
         datePickerView = UIDatePicker()
         datePickerView?.datePickerMode = UIDatePicker.Mode.date
+        datePickerView?.maximumDate = Calendar.current.date(byAdding: .year, value: 10, to: Date())
         sender.inputView = datePickerView
         datePickerView?.tag = sender.tag
         datePickerView?.addTarget(self, action: #selector(datePickerValueChanged(caller:)), for: UIControl.Event.valueChanged)
@@ -286,8 +281,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIndex = textFieldNumbers[indexPath.section][indexPath.row]
-        let conditionForDateCell = cells[indexPath.section].cellTitles[indexPath.row].lowercased().range(of: "date") != nil
-        let conditionForYearCell = cells[indexPath.section].cellTitles[indexPath.row].lowercased().range(of: "year") != nil
+        let cellName = homeViewModel.getCellName(section: indexPath.section, row: indexPath.row)
+        let conditionForDateCell = cellName.lowercased().range(of: homeViewModel.DATE) != nil
+        let conditionForYearCell = cellName.lowercased().range(of: homeViewModel.YEAR) != nil
         let conditionForDoubleTextField = indexPath.section == 1 || indexPath.section == 3
         let cell: UITableViewCell
         
@@ -325,10 +321,13 @@ extension HomeViewController: UITextFieldDelegate {
         guard let placeholder = textField.placeholder else {
             return
         }
-        if homeViewModel.getDecimalPadArray().contains(placeholder.lowercased()) {
+        let toolBar = UIToolbar().ToolbarPiker(selector: #selector(dismissPicker))
+        if homeViewModel.decimalPadArrayContains(element: placeholder.lowercased()) {
             textField.keyboardType = .decimalPad
-        } else if homeViewModel.getNumberPadArray().contains(placeholder.lowercased()) {
+            textField.inputAccessoryView = toolBar
+        } else if homeViewModel.numberPadArrayContains(element: placeholder.lowercased()) {
             textField.keyboardType = .numberPad
+            textField.inputAccessoryView = toolBar
         } else {
             textField.keyboardType = .default
         }
@@ -341,7 +340,7 @@ extension HomeViewController: UITextFieldDelegate {
         if textField.keyboardType == .decimalPad {
             let newText = text.replacingCharacters(in: r, with: string)
             let isNumeric = newText.isEmpty || (Double(newText) != nil)
-            let numberOfDots = newText.components(separatedBy: ".").count - 1
+            let numberOfDots = newText.components(separatedBy: Constants.DECIMAL).count - 1
             
             let numberOfDecimalDigits: Int
             if let dotIndex = newText.index(of: ".") {
@@ -351,6 +350,11 @@ extension HomeViewController: UITextFieldDelegate {
             }
             return isNumeric && numberOfDots <= 1 && numberOfDecimalDigits <= 2
         }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }

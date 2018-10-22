@@ -12,14 +12,8 @@ import UIKit
 class YearCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var yearTextField: UITextField!
-    var yearPicker: UIPickerView!
-    var yearsTillNow: [String] {
-        var years = [String]()
-        for year in (1100..<2019).reversed() {
-            years.append("\(year)")
-        }
-        return years
-    }
+    private var yearPicker: UIPickerView!
+    private let yearViewModel = YearCellViewModel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +21,7 @@ class YearCell: UITableViewCell {
         yearPicker.dataSource = self
         yearPicker.delegate = self
         yearTextField.inputView = yearPicker
-        yearTextField.text = yearsTillNow[0]
+        yearTextField.text = yearViewModel.getYear(at: 0)
         let toolBar = UIToolbar().ToolbarPiker(selector: #selector(HomeViewController.dismissPicker))
         yearTextField.inputAccessoryView = toolBar
     }
@@ -43,14 +37,14 @@ extension YearCell: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return yearsTillNow.count
+        return yearViewModel.getYearCount()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return yearsTillNow[row]
+        return yearViewModel.getYear(at: row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        yearTextField.text = yearsTillNow[row]
+        yearTextField.text = yearViewModel.getYear(at: row)
     }
 }

@@ -11,6 +11,15 @@
 		1709D0B6216DC05F00D896ED /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B5216DC05F00D896ED /* DatePickerCell.swift */; };
 		1709D0B8216F488000D896ED /* HideKeyboardOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B7216F488000D896ED /* HideKeyboardOnTap.swift */; };
 		1709D0BA21706DB000D896ED /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709D0B921706DB000D896ED /* UITextField.swift */; };
+		173AF02321785D5A00153B80 /* ParentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AF02221785D5A00153B80 /* ParentTabBarController.swift */; };
+		173AF0262178606600153B80 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AF0252178606600153B80 /* PhotosViewController.swift */; };
+		173AF028217860C000153B80 /* ParentTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173AF027217860C000153B80 /* ParentTabBarController.storyboard */; };
+		173AF02A2178616A00153B80 /* PhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173AF0292178616A00153B80 /* PhotosViewController.storyboard */; };
+		173AF02D217861EC00153B80 /* PhotosNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AF02C217861EC00153B80 /* PhotosNavigationController.swift */; };
+		173AF02F217862C800153B80 /* PhotosNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173AF02E217862C800153B80 /* PhotosNavigationController.storyboard */; };
+		173AF0352178A8F000153B80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173AF0342178A8F000153B80 /* Images.xcassets */; };
+		17A7D7A3217D922B008A12E0 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7D7A2217D922B008A12E0 /* PhotosViewModel.swift */; };
+		17A7D7A5217DD8CF008A12E0 /* YearCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7D7A4217DD8CF008A12E0 /* YearCellViewModel.swift */; };
 		17B5634F2174B1360032A9E7 /* UIToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5634E2174B1360032A9E7 /* UIToolBar.swift */; };
 		17E640912175B15B00304876 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E640902175B15B00304876 /* YearCell.swift */; };
 		17E6740C216765F50056BDD7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6740B216765F50056BDD7 /* HomeViewModel.swift */; };
@@ -26,7 +35,6 @@
 		17ECAD0B21673B7900E297C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD0A21673B7900E297C7 /* AppDelegate.swift */; };
 		17ECAD0D21673B7900E297C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD0C21673B7900E297C7 /* HomeViewController.swift */; };
 		17ECAD1021673B7900E297C7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17ECAD0E21673B7900E297C7 /* HomeViewController.storyboard */; };
-		17ECAD1221673B7B00E297C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17ECAD1121673B7B00E297C7 /* Assets.xcassets */; };
 		17ECAD1521673B7B00E297C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17ECAD1321673B7B00E297C7 /* LaunchScreen.storyboard */; };
 		17ECAD2021673B7B00E297C7 /* SampleHGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD1F21673B7B00E297C7 /* SampleHGTests.swift */; };
 		17ECAD2B21673B7B00E297C7 /* SampleHGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ECAD2A21673B7B00E297C7 /* SampleHGUITests.swift */; };
@@ -55,6 +63,15 @@
 		1709D0B5216DC05F00D896ED /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		1709D0B7216F488000D896ED /* HideKeyboardOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnTap.swift; sourceTree = "<group>"; };
 		1709D0B921706DB000D896ED /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		173AF02221785D5A00153B80 /* ParentTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTabBarController.swift; sourceTree = "<group>"; };
+		173AF0252178606600153B80 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		173AF027217860C000153B80 /* ParentTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ParentTabBarController.storyboard; sourceTree = "<group>"; };
+		173AF0292178616A00153B80 /* PhotosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotosViewController.storyboard; sourceTree = "<group>"; };
+		173AF02C217861EC00153B80 /* PhotosNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosNavigationController.swift; sourceTree = "<group>"; };
+		173AF02E217862C800153B80 /* PhotosNavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotosNavigationController.storyboard; sourceTree = "<group>"; };
+		173AF0342178A8F000153B80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		17A7D7A2217D922B008A12E0 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		17A7D7A4217DD8CF008A12E0 /* YearCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCellViewModel.swift; sourceTree = "<group>"; };
 		17B5634E2174B1360032A9E7 /* UIToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolBar.swift; sourceTree = "<group>"; };
 		17E640902175B15B00304876 /* YearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCell.swift; sourceTree = "<group>"; };
 		17E6740B216765F50056BDD7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -71,7 +88,6 @@
 		17ECAD0A21673B7900E297C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17ECAD0C21673B7900E297C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17ECAD0F21673B7900E297C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeViewController.storyboard; sourceTree = "<group>"; };
-		17ECAD1121673B7B00E297C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17ECAD1421673B7B00E297C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17ECAD1621673B7B00E297C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17ECAD1B21673B7B00E297C7 /* SampleHGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleHGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,11 +135,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173AF02121785D3C00153B80 /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				173AF02221785D5A00153B80 /* ParentTabBarController.swift */,
+				173AF027217860C000153B80 /* ParentTabBarController.storyboard */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		173AF0242178605000153B80 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				17A7D7A2217D922B008A12E0 /* PhotosViewModel.swift */,
+				173AF02B217861D400153B80 /* PhotosNavigation */,
+				173AF0302178637E00153B80 /* PhotosView */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		173AF02B217861D400153B80 /* PhotosNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				173AF02C217861EC00153B80 /* PhotosNavigationController.swift */,
+				173AF02E217862C800153B80 /* PhotosNavigationController.storyboard */,
+			);
+			path = PhotosNavigation;
+			sourceTree = "<group>";
+		};
+		173AF0302178637E00153B80 /* PhotosView */ = {
+			isa = PBXGroup;
+			children = (
+				173AF0252178606600153B80 /* PhotosViewController.swift */,
+				173AF0292178616A00153B80 /* PhotosViewController.storyboard */,
+			);
+			path = PhotosView;
+			sourceTree = "<group>";
+		};
+		17A7D7A6217DD8D8008A12E0 /* YearCell */ = {
+			isa = PBXGroup;
+			children = (
+				17E640902175B15B00304876 /* YearCell.swift */,
+				17A7D7A4217DD8CF008A12E0 /* YearCellViewModel.swift */,
+			);
+			path = YearCell;
+			sourceTree = "<group>";
+		};
 		17E67409216765910056BDD7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				173AF0342178A8F000153B80 /* Images.xcassets */,
 				17ECAD0A21673B7900E297C7 /* AppDelegate.swift */,
-				17ECAD1121673B7B00E297C7 /* Assets.xcassets */,
 				17ECAD1321673B7B00E297C7 /* LaunchScreen.storyboard */,
 				17ECAD1621673B7B00E297C7 /* Info.plist */,
 				17E67415216766970056BDD7 /* Constants.swift */,
@@ -197,10 +259,10 @@
 		17E8A58C216B76370016ED34 /* CustomTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				17A7D7A6217DD8D8008A12E0 /* YearCell */,
 				17E6742F216920FE0056BDD7 /* SingleTextFieldCell.swift */,
 				17E8A58D216B76680016ED34 /* DoubleTextFieldCell.swift */,
 				1709D0B5216DC05F00D896ED /* DatePickerCell.swift */,
-				17E640902175B15B00304876 /* YearCell.swift */,
 			);
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
@@ -262,6 +324,8 @@
 		17ECAD3821673B8700E297C7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				173AF0242178605000153B80 /* Photos */,
+				173AF02121785D3C00153B80 /* Parent */,
 				17E6740A216765E60056BDD7 /* Home */,
 			);
 			path = ViewControllers;
@@ -399,10 +463,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173AF02A2178616A00153B80 /* PhotosViewController.storyboard in Resources */,
 				17ECAD1521673B7B00E297C7 /* LaunchScreen.storyboard in Resources */,
-				17ECAD1221673B7B00E297C7 /* Assets.xcassets in Resources */,
+				173AF0352178A8F000153B80 /* Images.xcassets in Resources */,
+				173AF02F217862C800153B80 /* PhotosNavigationController.storyboard in Resources */,
 				17ECAD1021673B7900E297C7 /* HomeViewController.storyboard in Resources */,
 				17E6742D21686FCF0056BDD7 /* HomeNavigationController.storyboard in Resources */,
+				173AF028217860C000153B80 /* ParentTabBarController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +604,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17A7D7A5217DD8CF008A12E0 /* YearCellViewModel.swift in Sources */,
 				1709D0B8216F488000D896ED /* HideKeyboardOnTap.swift in Sources */,
+				173AF02321785D5A00153B80 /* ParentTabBarController.swift in Sources */,
 				17E6742921686F980056BDD7 /* HomeNavigationController.swift in Sources */,
 				17E6741F216780E80056BDD7 /* ExpandableSection.swift in Sources */,
 				17ECAD0D21673B7900E297C7 /* HomeViewController.swift in Sources */,
@@ -545,12 +614,15 @@
 				17E8A58E216B76680016ED34 /* DoubleTextFieldCell.swift in Sources */,
 				17E67430216920FE0056BDD7 /* SingleTextFieldCell.swift in Sources */,
 				17E6740C216765F50056BDD7 /* HomeViewModel.swift in Sources */,
+				173AF0262178606600153B80 /* PhotosViewController.swift in Sources */,
+				173AF02D217861EC00153B80 /* PhotosNavigationController.swift in Sources */,
 				17E67410216766340056BDD7 /* UIViewController.swift in Sources */,
 				1709D0BA21706DB000D896ED /* UITextField.swift in Sources */,
 				17E640912175B15B00304876 /* YearCell.swift in Sources */,
 				17E67416216766970056BDD7 /* Constants.swift in Sources */,
 				17ECAD0B21673B7900E297C7 /* AppDelegate.swift in Sources */,
 				17B5634F2174B1360032A9E7 /* UIToolBar.swift in Sources */,
+				17A7D7A3217D922B008A12E0 /* PhotosViewModel.swift in Sources */,
 				17E67414216766750056BDD7 /* ServiceManager.swift in Sources */,
 				1709D0B6216DC05F00D896ED /* DatePickerCell.swift in Sources */,
 			);
@@ -728,6 +800,7 @@
 			baseConfigurationReference = 50EA1DE9F1849B2F9803A7C1 /* Pods-SampleHG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJ4K44BL6G;
 				INFOPLIST_FILE = "$(SRCROOT)/SampleHG/Application/Info.plist";
@@ -748,6 +821,7 @@
 			baseConfigurationReference = EA35ACBE139372CBC40C44B2 /* Pods-SampleHG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJ4K44BL6G;
 				INFOPLIST_FILE = "$(SRCROOT)/SampleHG/Application/Info.plist";

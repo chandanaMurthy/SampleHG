@@ -10,9 +10,8 @@ import Foundation
 
 class HomeViewModel {
     private let participants = ["Name", "Role", "Email"]
-    private let propAddress = ["Address", "Apt/Unit", "City",
-                               "State/Prov", "ZipCode", "Country",
-                               "MLS Number", "Parcel/Tax ID"]
+    private let propAddress = ["Address", "Apt/Unit", "City", "State/Prov",
+                               "ZipCode", "Country", "MLS Number", "Parcel/Tax ID"]
     private let listingInfo = ["Expiration Date", "Listing Date", "Original Price",
                                "Current Price", "1st Mortgage Balance", "2nd Mortgage Balance",
                                "Other Liens", "Description of Other Liens",
@@ -22,25 +21,30 @@ class HomeViewModel {
     private let contractDates = ["Contract Agreement Date", "Closing Date"]
     private let offerDates = ["Inspection Date", "Offer Date", "Offer Expiration Date"]
     private let property = ["Year Built", "Bedrooms", "Square Footage"]
+    private let headerTitles = ["Participants", "Property Address", "Listing Information",
+                                "Geographic Description", "Contract Dates", "Offer Dates", "Property"]
     
-    private let headerTitles = ["Participants", "Property Address",
-                                "Listing Information", "Geographic Description",
-                                "Contract Dates", "Offer Dates", "Property"]
-    private var placeholderStrings = [[String]]()
-    let dateTextFieldPlaceholder = "Click to Select"
     private let decimalPadArray = ["original price", "current price", "1st mortgage balance", "2nd mortgage balance", "square footage", "mls area", "total encumbrances"]
     private let numberPadArray = ["zipcode", "block", "mls number", "bedrooms", "apt/unit", "parcel/tax id"]
     
-    func getDecimalPadArray() -> [String] {
-        return decimalPadArray
+    private var placeholderStrings = [[String]]()
+    private var titles = [ExpandableSection]()
+    let PICKERFIELD_PLACEHOLDER = "Click to Select"
+    let OPEN = "v"
+    let CLOSE = "^"
+    let DATE = "date"
+    let YEAR = "year"
+    
+    func decimalPadArrayContains(element: String) -> Bool {
+        return decimalPadArray.contains(element)
     }
     
-    func getNumberPadArray() -> [String] {
-        return numberPadArray
+    func numberPadArrayContains(element: String) -> Bool {
+        return numberPadArray.contains(element)
     }
     
-    func getHeaderTitles() -> [String] {
-        return headerTitles
+    func getHeaderTitle(at index: Int) -> String {
+        return headerTitles[index]
     }
     
     func getPlaceholderString(in section: Int, at row: Int) -> String {
@@ -61,7 +65,23 @@ class HomeViewModel {
         let contractDates = getSectionDetails(titles: self.contractDates)
         let offerDates =  getSectionDetails(titles: self.offerDates)
         let property = getSectionDetails(titles: self.property)
-        let titles = [participants, propAddress, listingInfo, geoDesc, contractDates, offerDates, property]
+        titles = [participants, propAddress, listingInfo, geoDesc, contractDates, offerDates, property]
         return titles
+    }
+    
+    func totalCellCount() -> Int {
+        return titles.count
+    }
+    
+    func cellTitleCount(in section: Int) -> Int {
+        return titles[section].cellTitles.count
+    }
+    
+    func getCellName(section: Int, row: Int) -> String {
+        return titles[section].cellTitles[row]
+    }
+    
+    func section(at index: Int) -> ExpandableSection {
+        return titles[index]
     }
 }

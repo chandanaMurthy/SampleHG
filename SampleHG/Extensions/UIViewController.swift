@@ -17,7 +17,23 @@ extension UIViewController {
         return viewController
     }
     
-    static var home: UIViewController {
-        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.home, identifier: "HomeViewController", to: HomeViewController.self)
+    static let HOME_VIEW_CONTROLLER = "HomeViewController"
+    static var home: HomeViewController {
+        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.home, identifier: HOME_VIEW_CONTROLLER, to: HomeViewController.self)
+    }
+    
+    static let HOME_NAVIGATION_CONTROLLER = "HomeNavigationController"
+    static var homeNavigationController: HomeNavigationController {
+        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.homeNavigationController, identifier: HOME_NAVIGATION_CONTROLLER, to: HomeNavigationController.self)
+    }
+    
+    static let PHOTOS_VIEW_CONTROLLER = "PhotosViewController"
+    static var photos: PhotosViewController {
+        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.photos, identifier: PHOTOS_VIEW_CONTROLLER, to: PhotosViewController.self)
+    }
+    
+    static let PHOTOS_NAVIGATION_CONTROLLER = "PhotosNavigationController"
+    static var photosNavigationController: PhotosNavigationController {
+        return UIViewController.instantiateFromStoryboard(storyboard: UIStoryboard.photosNavigationController, identifier: PHOTOS_NAVIGATION_CONTROLLER, to: PhotosNavigationController.self)
     }
 }
